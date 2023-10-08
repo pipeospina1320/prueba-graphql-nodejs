@@ -10,6 +10,7 @@ type Query {
   # Product
   product(id: ID!): Product!
   allProducts: [Product!]!
+  getCategory(id: ID!): Category
 }
 
 type Mutation {
@@ -35,6 +36,7 @@ type Category {
   id: ID!
   name: String!
   image: String!
+  products: [Product!]!
 }
 
 input CreateProductDto {

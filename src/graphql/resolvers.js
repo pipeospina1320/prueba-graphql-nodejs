@@ -4,9 +4,10 @@ const {
   addProduct,
   updateProduct,
   deleteProduct,
+  getByCategory,
 } = require('./product.resolvers');
 const { login } = require('./auth.resolvers');
-const { addCategory } = require('./category.resolvers');
+const { addCategory, getCategory } = require('./category.resolvers');
 
 const resolvers = {
   Query: {
@@ -22,6 +23,7 @@ const resolvers = {
     // Product
     product,
     allProducts,
+    getCategory,
   },
   Mutation: {
     login,
@@ -29,6 +31,10 @@ const resolvers = {
     updateProduct,
     deleteProduct,
     addCategory,
+  },
+  // Debe ser el mismo nombre del type en los schemas
+  Category: {
+    products: getByCategory,
   },
 };
 

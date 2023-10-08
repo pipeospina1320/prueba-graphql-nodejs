@@ -50,6 +50,12 @@ class ProductsService {
     return product;
   }
 
+  async getByCategory(categoryId) {
+    return await models.Product.findAll({
+      where: { categoryId },
+    });
+  }
+
   async update(id, changes) {
     const product = await this.findOne(id);
     const rta = await product.update(changes);
